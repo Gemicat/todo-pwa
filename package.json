@@ -23,5 +23,9 @@
     "mime": "1.3.4",
     "mz": "2.6.0",
     "nunjucks": "3.0.0"
+  },
+  "dependencies": {
+    "koa-convert": "1.2.0",
+    "koa-static": "3.0.0"
   }
 }

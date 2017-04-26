@@ -1,19 +1,45 @@
 // Full spec-compliant TodoMVC with localStorage persistence
 // and hash-based routing in ~150 lines.
 
+if (navigator.serviceWorker != null) {
+  navigator.serviceWorker.register('/sw.js')
+  .then(function(registration) {
+    console.log('Registered events at scope: ', registration.scope);
+  });
+}
+
 // localStorage persistence
 var STORAGE_KEY = 'todos-vuejs-2.0'
 var todoStorage = {
-  fetch: function () {
-    var todos = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]')
-    todos.forEach(function (todo, index) {
-      todo.id = index
+  fetch: function (that) {
+    let todoList;
+    $.ajax({
+      url: '/getData',
+      type: 'get',
+      async: false,
+      success: function(data) {
+        let todos = JSON.parse(data);
+        todos.forEach(function (todo, index) {
+          todo.id = index
+        })
+        todoStorage.uid = todos.length
+        todoList = todos;
+      }
     })
-    todoStorage.uid = todos.length
-    return todos
+    return todoList;
   },
   save: function (todos) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(todos))
+    $.ajax({
+      url: '/saveData',
+      type: 'post',
+      async: false,
+      data: {
+        data: todos
+      },
+      success: function(data) {
+          console.log('保存成功');
+      }
+    })
   }
 }
 
@@ -53,6 +79,8 @@ var app = new Vue({
       deep: true
     }
   },
+
+
 
   // computed properties
   // https://vuejs.org/guide/computed.html

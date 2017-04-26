@@ -3,14 +3,15 @@
   <head>
     <meta charset="utf-8">
     <title>Vue.js • TodoMVC</title>
-    <link rel="stylesheet" href="/static/css/index.css">
-    <script src="/static/js/director.js"></script>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="/css/index.css">
+    <script src="/js/director.js"></script>
     <style>[v-cloak] { display: none; }</style>
   </head>
   <body>
     <section class="todoapp">
       <header class="header">
-        <h1>todos</h1>
+        <h1>todos - 1</h1>
         <input class="new-todo"
           autofocus autocomplete="off"
           placeholder="What needs to be done?"
@@ -58,12 +59,10 @@
       <p>Part of <a href="http://todomvc.com">TodoMVC</a></p>
     </footer>
 
-    <script>
-    // for testing
-    if (navigator.userAgent.indexOf('PhantomJS') > -1) localStorage.clear()
-    </script>
     <!-- Delete ".min" for console warnings in development -->
-    <script src="/static/js/vue.min.js"></script>
-    <script src="/static/js/app.js"></script>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/vue.min.js"></script>
+    <script src="/js/vue-resource.js"></script>
+    <script src="/js/app.js"></script>
   </body>
 </html>
