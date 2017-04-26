@@ -1,0 +1,27 @@
+{
+  "name": "todo-pwa",
+  "version": "1.0.0",
+  "description": "基于 vue 的 pwa todo list",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gemicat/todo-pwa.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gemicat/todo-pwa/issues"
+  },
+  "homepage": "https://github.com/Gemicat/todo-pwa#readme",
+  "devDependencies": {
+    "koa": "2.2.0",
+    "koa-bodyparser": "4.2.0",
+    "koa-router": "7.1.1",
+    "mime": "1.3.4",
+    "mz": "2.6.0",
+    "nunjucks": "3.0.0"
+  }
+}

@@ -1,0 +1,12 @@
+{% extends "base.html" %} {% block main %}
+<pre>
+{{code}}
+</pre>
+<form action="/code" method="get">
+    <div class="form-group">
+        <label>Shell: </label>
+        <input type="text" name="code" class="form-control" value="{{value}}">
+    </div>
+    <button type="submit" class="btn btn-primary">执行</button>
+</form>
+{% endblock %}
