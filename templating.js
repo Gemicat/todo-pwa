@@ -9,10 +9,14 @@ function createEnv(path, opts) {
         env = new nunjucks.Environment(
             new nunjucks.FileSystemLoader(path, {
                 noCache: noCache,
-                watch: watch,
+                watch: watch
             }), {
                 autoescape: autoescape,
-                throwOnUndefined: throwOnUndefined
+                throwOnUndefined: throwOnUndefined,
+                tags: {
+                    variableStart: '[[',
+                    variableEnd: ']]'
+                }
             });
     if (opts.filters) {
         for (var f in opts.filters) {
